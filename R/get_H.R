@@ -1,0 +1,9 @@
+get_H<-function(x,sortx,H){
+  n<-length(x)
+  index<-outer(x,sortx,">=")
+  A<-cbind(array(1,n),index)
+  result<-as.vector(A%*%H)
+  temp<-which(rowSums(A)==1)
+  result[temp]<-H[3]/(sortx[2]-sortx[1])*(x[temp]-sortx[1])+(H[1]+H[2])
+  result
+}

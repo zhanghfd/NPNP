@@ -1,0 +1,10 @@
+get_es_2<-function(y,d,x){
+  sorty<-sort_0.1(y)$sort.x
+  ny<-length(sorty)
+  temp_H<-c(sorty[1]-0.1,0.1,diff(sorty))
+  initial_Hy<-(temp_H-min(temp_H))*24/(max(temp_H)-min(temp_H))-10
+  a<-(mean(y[d==1])-mean(y[d==0]))/sd(y[d==0])
+  b<-sqrt(sd(y[d==1])/sd(y[d==0]))
+  r<-rep(1,length(as.matrix(x)[,1]))
+  trans_coordinate(initial_Hy,a,b,r,y,sorty,d,x)
+}
