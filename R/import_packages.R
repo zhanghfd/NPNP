@@ -1,3 +1,3 @@
 #' @import mnormt
-#' @export NPNP_training NPNP_diagnosis
+#' @export NPNP
 NULL
