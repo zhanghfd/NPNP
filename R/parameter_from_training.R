@@ -5,7 +5,7 @@ parameter_from_training<-function(train_y,train_d,transformation='simultaneous')
     sorty<-sort_0.1(train_y[,i])$sort.x
     nsort[i]<-length(sorty)
   }
-  
+
   if(transformation=='simultaneous'){
     H1<-matrix(0,K,max(nsort)+1)
     a1<-rep(0,K)
@@ -31,7 +31,7 @@ parameter_from_training<-function(train_y,train_d,transformation='simultaneous')
     a2[1]<-a1[1]
     b2[1]<-b1[1]
     H2[1,1:(length(sorty1)+1)]<-H1[1,1:(length(sorty1)+1)]
-    
+
     i<-2
     tempy<-get_es_2(train_y[,i],train_d,t(Hy[1:i-1,]))
     sorty<-sort_0.1(train_y[,i])$sort.x
@@ -40,7 +40,7 @@ parameter_from_training<-function(train_y,train_d,transformation='simultaneous')
     a2[i]<-tempy$a
     b2[i]<-tempy$b
     r[i-1,1:i-1]<-t(tempy$r)
-    
+
     if (K>2){
       for (i in 3:K){
         tempy<-get_es_2(train_y[,i],train_d,Hy[1:i-1,])

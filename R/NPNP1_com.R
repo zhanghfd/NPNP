@@ -1,4 +1,4 @@
-NPNP1_com<-function(test,test_d,train,train_d,trained_result,transformation='simultaneous'){
+NPNP1_com<-function(test,train,train_d,trained_result,transformation='simultaneous'){
   H1<-trained_result$H;
   a1<-trained_result$a;
   b1<-trained_result$b;
@@ -15,6 +15,6 @@ NPNP1_com<-function(test,test_d,train,train_d,trained_result,transformation='sim
     sorty<-sort_0.1(train[,i])$sort.x
     test_Hy_1[,i]<-get_H(test[,i],sorty,H1[i,1:(length(sorty)+1)])
   }
-  optim_com_1<-get_com_1(train_Hy_1,train_d,a1,b1,test_Hy_1,test_d)
-  list(com=optim_com_1$com,d=optim_com_1$d,transformation='simultaneous')
+  optim_com_1<-get_com_1(train_Hy_1,train_d,a1,b1,test_Hy_1)
+  list(com=optim_com_1,transformation='simultaneous')
 }

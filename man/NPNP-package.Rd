@@ -6,7 +6,7 @@ An optimal semi-parametric diagnosis test using muitiple biomarkers}
 \description{
 NPNP is a semi-parametric diagnosis test that combines multiple biomarkers. The biomarker measures are not necessary to be normally distributed, and a data dependent non-linear transformation function is applied to each biomarker using training data. NPNP is based on the Neyman-Pearson lemma so that is statistically efficient.
 
-This package includes two main functions (i.e., NPNP_training and NPNP_diagnosis) and two simulated datasets (i.e., train and test) for illustration. A diagnosis model is trained using NPNP_training, and new subject(s) can be diagnosed using NPNP_diagnosis. Two candidate estimation methods can be used to estimate the unknown transformation function, one is simultaneous and the other is sequential.
+This package includes one main function (i.e., NPNP) and two simulated datasets (i.e., train and test) for illustration. Using NPNP, a diagnosis model is trained using training samples and new subject(s) can be diagnosed. Two candidate estimation methods can be used to estimate the unknown transformation function, one is `simultaneous' and the other is `sequential'.
 
 }
 \details{
