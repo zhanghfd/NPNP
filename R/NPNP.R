@@ -1,5 +1,5 @@
 
-NPNP = function(training,test_biomarker=NULL,validation_ratio=0.5,n.validation=5,fpr_thre=NULL,transformation='simultaneous'){
+NPNP = function(training,test_biomarker=NULL,validation_proportion=0.5,n.validation=5,fpr_thre=NULL,transformation='simultaneous'){
 
   train_d = training[,1];
   train_y = training[,-1];
@@ -7,7 +7,7 @@ NPNP = function(training,test_biomarker=NULL,validation_ratio=0.5,n.validation=5
 
   trained_parameter<-parameter_from_training(train_y,train_d,transformation);
 
-  NPNP_training_results<-NPNP_training(validation_ratio,n.validation,trained_parameter,train_y,train_d)
+  NPNP_training_results<-NPNP_training(validation_proportion,n.validation,trained_parameter,train_y,train_d)
 
   fpr=NPNP_training_results$fpr;
   fnr=NPNP_training_results$fnr;

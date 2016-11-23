@@ -1,5 +1,4 @@
-
-NPNP_prediction<-function(test_y,test_com,NPNP_training_results,fpr_thre){
+NPNP_prediction<-function(test_y,test_com,NPNP_training_results,fpr_thre=NULL){
   # use optimal combination & (threshold,fnr,fpr) results from NPNP_training
   # to predict disease status
   train_points<-NPNP_training_results$train_points
@@ -8,7 +7,7 @@ NPNP_prediction<-function(test_y,test_com,NPNP_training_results,fpr_thre){
   fnr<-NPNP_training_results$fnr
   fpr<-NPNP_training_results$fpr
   fnr_fpr<-NPNP_training_results$fr
-
+  
   # trans_test: transformed value of test_y
   M<-length(train_points)
   trans_test<-test_y
@@ -24,7 +23,7 @@ NPNP_prediction<-function(test_y,test_com,NPNP_training_results,fpr_thre){
     trans_test[,i]<-rowMeans(temp_result[[i]])
   }
   # disease status prediction
-  if(missing(fpr_thre)){
+  if(is.null(fpr_thre)){
     thres_optim<-thres[which.min(fnr_fpr)]
     predict_d<-as.numeric(test_com>=thres_optim)
     method="minimize FPR+FNR"
