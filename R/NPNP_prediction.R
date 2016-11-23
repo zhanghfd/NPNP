@@ -33,5 +33,5 @@ NPNP_prediction<-function(test_y,test_com,NPNP_training_results,fpr_thre){
     predict_d<-as.numeric(test_com>=thres_optim)
     method=paste0("FPR=",fpr_thre,sep='')
   }
-  return(predict_d=predict_d);
+  return(predict_d);
 }

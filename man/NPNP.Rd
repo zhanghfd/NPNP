@@ -35,7 +35,7 @@ training=as.matrix(train);
 
 test_biomarker=as.matrix(test)[,-1];
 
-res = NPNP(training,test_biomarker=NULL,transformation='simultaneous');
+res = NPNP(training,test_biomarker=test_biomarker,transformation='simultaneous');
 
 plot(res$fpr,1-res$fnr,xlab='1-Specificity',ylab='Sensitivity',type='l'); # ROC curve
 
