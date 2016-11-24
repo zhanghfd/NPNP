@@ -7,14 +7,14 @@ Disease diagnosing through combining multiple biomarkers.
 This function returns false positive rates (FPRs), false negative rates (FNRs), area under ROC curve (AUC), and possibly predicted disease status if test samples are provided. The major inputs of this function include (1) training data information (both biomarker values and disease statuses) and (2) testing data information (only biomarker values) if possible.
 }
 \usage{
-NPNP(training,test_biomarker=NULL,validation_proportion=0.5,n.validation=5,fpr_thre=NULL,transformation='simultaneous')
+NPNP(training,test_biomarker=NULL,tv_ratio=1,n.validation=5,fpr_thre=NULL,transformation='simultaneous')
 }
 %- maybe also 'usage' for other objects documented here.
 \arguments{
-  \item{training}{A matrix containing the training sample information on both disease status and biomarkers. The first column is for disease statuses and the other columns are for biomarker values.}
+  \item{train_validation}{A matrix containing the sample information on both disease status and biomarkers that is used for training and validation. The first column is for disease statuses and the other columns are for biomarker values.}
   \item{test_biomarker}{A matrix containing the test sample information on biomarkers. The biomarkers in this matrix should correspond to those in `training'.}
-  \item{validation_proportion}{Proportion of subjects in the training sample that will be used to for validation, with the default value of 0.5.}
-  \item{n.validation}{Number of validation experiments, with the default value of 5.}
+  \item{tv_ratio}{Training versus validation sample size ratio, with the default value of 1.}
+  \item{n.validation}{Number of random validation experiments, with the default value of 5.}
   \item{fpr_thre}{False positive rate that determines the threshold for predicting disease status.}
   \item{transformation}{Method for estimating transformation function, which is either `simultaneous' (default) or `sequential'.}
 }
@@ -31,11 +31,11 @@ NPNP(training,test_biomarker=NULL,validation_proportion=0.5,n.validation=5,fpr_t
 data(train);
 data(test);
 
-training=as.matrix(train);
+train_validation=as.matrix(train);
 
 test_biomarker=as.matrix(test)[,-1];
 
-res = NPNP(training,test_biomarker=test_biomarker,transformation='simultaneous');
+res = NPNP(train_validation,test_biomarker=test_biomarker,transformation='simultaneous');
 
 plot(res$fpr,1-res$fnr,xlab='1-Specificity',ylab='Sensitivity',type='l'); # ROC curve
 
