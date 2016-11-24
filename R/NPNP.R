@@ -25,7 +25,7 @@ NPNP = function(train_validation,test_biomarker=NULL,tv_ratio=1,n.validation=5,f
 
     test_prediction<-NPNP_prediction(test_y,optimal_com,NPNP_training_results,fpr_thre)
 
-    return(list(fpr=fpr,fnr=fnr,auc=auc,H=H,predict_d=test_prediction));
+    return(list(fpr=fpr,fnr=fnr,auc=auc,predict_d=test_prediction));
 
   }
 }
