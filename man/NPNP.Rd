@@ -23,7 +23,7 @@ NPNP(train_validation,test_biomarker=NULL,tv_ratio=1,n.validation=5,fpr_thre=NUL
   \item{fpr}{A vector containing false positive rates 0.01, 0.02, ..., 0.99.}
   \item{fnr}{A vector containing false negative rates corresponding to false positive rates.}
   \item{auc}{Area under ROC curve.}
-  \item{predict_d}{A vector containing predicted disease statuses, which is provided if `test_biomarker' is available. The threshold used for predicting the disease statuses either is determined by `fpr_thre' (if available) or corresponds to the minimal value of fpr+tpr.}
+  \item{predict_d}{A vector containing predicted disease statuses, which is provided if `test_biomarker' is available. The threshold used for predicting the disease statuses either is determined by `fpr_thre' (if available) or corresponds to the minimal value of fpr+fnr.}
 }
 
 \examples{

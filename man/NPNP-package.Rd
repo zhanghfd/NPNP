@@ -2,7 +2,7 @@
 \alias{NPNP-package}
 \docType{package}
 \title{
-An optimal semi-parametric diagnosis test using muitiple biomarkers}
+An optimal semi-parametric diagnosis test using multiple biomarkers}
 \description{
 NPNP is a semi-parametric diagnosis test that combines multiple biomarkers. The biomarker measures are not necessary to be normally distributed, and a data dependent non-linear transformation function is applied to each biomarker using training data. NPNP is based on the Neyman-Pearson lemma so that is statistically efficient.
 
